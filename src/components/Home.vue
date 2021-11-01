@@ -1,6 +1,20 @@
 <template>
-  <div class="hero">
-  </div>
+  <header class="cover">
+    <svg viewBox="0 50 600 300">
+        <symbol id="s-text">
+            <text text-anchor="middle" x="50%" y="50%" dy=".35em">Word Storm</text>
+        </symbol>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+    </svg>
+    <div class="headerBottoms">
+        <router-link class="start" to="/gameinit">START</router-link>
+    </div>
+    <span>A typing game created by @juandiegocodes</span> 
+  </header>
 </template>
 
 <script>
@@ -8,5 +22,88 @@ export default {
   name: 'Home',
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+svg {
+  z-index: 1;
+}
+.text {
+  fill: none;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-dasharray: 70 330;
+  stroke-dashoffset: 0;
+  -webkit-animation: stroke 6s infinite linear;
+  animation: stroke 6s infinite linear;
+}
+.text:nth-child(5n + 1) {
+  stroke: rgb(75, 73, 74);
+  -webkit-animation-delay: -1.2s;
+  animation-delay: -1.2s;
+}
+.text:nth-child(5n + 2) {
+  stroke: rgb(255, 255, 255);
+  -webkit-animation-delay: -2.4s;
+  animation-delay: -2.4s;
+}
+.text:nth-child(5n + 3) {
+  stroke: rgb(160, 156, 156);
+  -webkit-animation-delay: -3.6s;
+  animation-delay: -3.6s;
+}
+.text:nth-child(5n + 4) {
+  stroke: rgb(187, 187, 187);
+  -webkit-animation-delay: -4.8s;
+  animation-delay: -4.8s;
+}
+.text:nth-child(5n + 5) {
+  stroke: red;
+  -webkit-animation-delay: -6s;
+  animation-delay: -6s;
+}
+
+@-webkit-keyframes stroke {
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
+
+.cover {
+  font: 5em/1 Open Sans, Impact;
+  text-transform: uppercase;
+  margin: 0;
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  span {
+    font-size: 0.75rem;
+    display: flex;
+    margin-top: 10%;
+    text-transform: capitalize;
+
+  }
+  .headerBottoms{
+    margin-top: 25%;
+    a {
+      z-index: 10;
+      margin-top: 1%;
+      position: relative;
+    }
+  }
+
+}
+
+svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 </style>
